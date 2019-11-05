@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="height: 100%;">
+  <div class="container" style="height: 100%; border:1px solid #cccc">
+    <div class="row">
+      <div class="col">
+        <highcharts-chart *ngIf="!isDataLoading"
+        [Highcharts] = "highcharts" 
+        [options] = "chartOptions" 
+        style = "width: 100%; height: 100%; display: block;">
+     </highcharts-chart>
+      </div>
+      <div class="col">
+        <div style="height: 40%;border: 1px solid #cccc;margin-top: 1rem;">
+          <div style="    text-align: center;
+          font-size: 25px;
+          height: 100%;
+          font-weight: 500;
+          padding-top: 1.5rem;">
+            {{this.percentage}}%
+          </div>
+        </div>
+        <div style="height: 40%;border: 1px solid #cccc;margin-top: 1rem;">
+          <div style="height: 100%;
+          width: 40%;
+          margin: 0px;
+          display: inline-flex;border-right:1px solid #cccc;vertical-align:top;">
+              <img src="./assets/user.jpg" style="height: 90%;
+              width: 90%;
+              position: relative;
+              bottom: 1%;
+              left: 5%;"/>
+          </div>
+          <div style="width: 60%;
+          height: 100%;
+          display: inline-block;vertical-align: top;">
+                <span>Name:</span><br>
+                <span>Username:</span><br>
+                <span>Email Id :</span>
+          </div>
+        </div>  
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive" style="max-height: 50%;">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>S No.</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>Company Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of data; let i = index">
+                    <td>{{row.id}}</td>
+                    <td>{{row.name}}</td>
+                    <td>{{row.username}}</td>
+                    <td>{{row.address.city}}</td>
+                    <td>{{row.address.zipcode}}</td>
+                    <td>{{row.company.name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
